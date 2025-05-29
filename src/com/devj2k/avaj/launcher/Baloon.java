@@ -27,6 +27,7 @@ public class Baloon extends Aircraft {
         }
         if (this.coordinates.getHeight() == 0) {
             FtLogger.scenario("Baloon", this.name, this.stringId, "has landed.");
+            this.weatherTower.unregister(this);
         }
     }
 }

@@ -21,4 +21,8 @@ public class FtLogger {
                 System.out.println("Unknown aircraft type: " + aircraftType);
         }
     }
+
+    public static void tower(String message) {
+        System.out.println(Colors.to(Colors.BWHITE, "Tower says: " + Colors.to(Colors.BHWHITE, message)));
+    }
 }

@@ -27,6 +27,7 @@ public class JetPlane extends Aircraft {
         }
         if (this.coordinates.getHeight() == 0) {
             FtLogger.scenario("JetPlane", this.name, this.stringId, "has landed.");
+            this.weatherTower.unregister(this);
         }
     }
 }

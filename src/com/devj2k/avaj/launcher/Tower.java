@@ -7,14 +7,22 @@ public class Tower {
     List<Flyable> observers;
 
     public void register(Flyable flyable) {
-        observers.add(flyable);
+        // FtLogger.tower(flyable.() + "#" + flyable.getName() + "(" + flyable.getStringId() + ") registered to weather tower.");
+        if (observers.add(flyable)) {
+
+        }
     }
 
     public void unregister(Flyable flyable) {
-        observers.remove(flyable);
+        // FtLogger.tower(flyable.() + "#" + flyable.getName() + "(" + flyable.getStringId() + ") registered to weather tower.");
+        if (observers.remove(flyable)) {
+            
+        }
     }
 
     protected void conditionChanged() {
-
+        for (Flyable flyable : this.observers) {
+            flyable.updateConditions();
+        }
     }
 }
