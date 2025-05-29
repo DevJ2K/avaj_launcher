@@ -8,3 +8,7 @@ compil:
 
 run:
 	java -cp target com.devj2k.avaj.launcher.Simulator
+
+clean:
+	rm -f $(COMPIL_FILE)
+	rm -rf target
