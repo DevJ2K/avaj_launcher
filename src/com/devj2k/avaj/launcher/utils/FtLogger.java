@@ -8,4 +8,17 @@ public class FtLogger {
         System.out.print(Colors.to(Colors.RED, description + ": "));
         System.out.println(Colors.to(Colors.BRED, e.getMessage()));
     }
+
+    public static void scenario(String aircraftType, String aircraftName, String id, String message) {
+        switch (aircraftType) {
+            case "Baloon":
+                System.out.println(Colors.to(Colors.BBLUE, "Baloon#" + aircraftName + "(" + id + "): " + Colors.to(Colors.BHWHITE, message)));
+            case "Helicopter":
+                System.out.println(Colors.to(Colors.BMAG, "Helicopter#" + aircraftName + "(" + id + "): " + Colors.to(Colors.BHWHITE, message)));
+            case "JetPlane":
+                System.out.println(Colors.to(Colors.BCYAN, "JetPlane#" + aircraftName + "(" + id + "): " + Colors.to(Colors.BHWHITE, message)));
+            default:
+                System.out.println("Unknown aircraft type: " + aircraftType);
+        }
+    }
 }
