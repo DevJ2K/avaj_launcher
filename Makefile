@@ -1,5 +1,6 @@
 COMPIL_FILE = sources.txt
-SCENARIO = scenario.txt
+SCENARIO = files/valid/scenario.txt
+TERMINAL_OUT=false
 
 ########################################
 ########## COLORS
@@ -24,11 +25,13 @@ compil:
 	@echo "$(GRAY)You can now run the simulator with 'make run' or specify a scenario file with 'make run SCENARIO=<your_scenario_file>'$(DEF_COLOR)"
 
 
-run:
-	java -cp target com.devj2k.avaj.launcher.Simulator $(SCENARIO)
-# cat simulation.txt
+run: compil
+	@echo "$(BLUE)Cleaning output file...$(DEF_COLOR)"
+	@rm -f simulation.txt
+	@echo "$(CYAN)Running the simulator...$(DEF_COLOR)"
+	java -cp target -DTERMINAL_OUT=$(TERMINAL_OUT) com.devj2k.avaj.launcher.Simulator $(SCENARIO)
 
-test:
+test: compil
 	@echo "$(MAGENTA)Running tests...$(DEF_COLOR)"
 	@make -C tester
 	@echo "$(GREEN)All tests completed successfully!$(DEF_COLOR)"

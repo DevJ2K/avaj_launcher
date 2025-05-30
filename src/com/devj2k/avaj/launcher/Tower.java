@@ -8,16 +8,11 @@ public class Tower {
     List<Flyable> observers = new CopyOnWriteArrayList<>();
 
     public void register(Flyable flyable) {
-        // FtLogger.tower(flyable.() + "#" + flyable.getName() + "(" + flyable.getStringId() + ") registered to weather tower.");
-        if (observers.add(flyable)) {
-        }
+        observers.add(flyable);
     }
 
     public void unregister(Flyable flyable) {
-        // FtLogger.tower(flyable.() + "#" + flyable.getName() + "(" + flyable.getStringId() + ") registered to weather tower.");
-        if (observers.remove(flyable)) {
-            
-        }
+        observers.remove(flyable);
     }
 
     protected void conditionChanged() {

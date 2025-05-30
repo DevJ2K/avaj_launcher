@@ -8,13 +8,13 @@ def test_invalid_scenario():
     for file in invalid_files:
         scenario = file.name
         result = run(
-            ["make", "run", f"SCENARIO={file}"],
+            ["make", "run", f"SCENARIO={file}", f"TERMINAL_OUT=true"],
             stdout=PIPE,
             stderr=PIPE,
             text=True
         )
-        print(f"Testing scenario: {scenario}")
-        print(f"Output: {result.stdout}")
+        # print(f"Testing scenario: {scenario}")
+        # print(f"Output: {result.stdout}")
         assert "Parsing Error" in result.stdout, f"Expected parsing error for '{scenario}', but got output: {result.stdout}"
 
 def test_valid_scenario():
@@ -22,13 +22,11 @@ def test_valid_scenario():
     for file in valid_files:
         scenario = file.name
         result = run(
-            ["make", "run", f"SCENARIO={file}"],
+            ["make", "run", f"SCENARIO={file}", f"TERMINAL_OUT=true"],
             stdout=PIPE,
             stderr=PIPE,
             text=True
         )
-        print(f"Testing scenario: {scenario}")
-        print(f"Output: {result.stdout}")
         assert "Parsing Error" not in result.stdout, f"Expected no parsing error for '{scenario}', but got output: {result.stdout}"
 
 if __name__ == "__main__":

@@ -1,0 +1,52 @@
+Tower says: Baloon#B1(1) registered to weather tower.
+Tower says: Baloon#B2(2) registered to weather tower.
+Tower says: JetPlane#J1(3) registered to weather tower.
+Tower says: Helicopter#H1(4) registered to weather tower.
+Tower says: Helicopter#H2(5) registered to weather tower.
+Tower says: Helicopter#H3(6) registered to weather tower.
+Tower says: Baloon#B3(7) registered to weather tower.
+Tower says: JetPlane#J2(8) registered to weather tower.
+Tower says: Helicopter#H4(9) registered to weather tower.
+Helicopter#B1(1): Yooo, this is too cold bro!!
+Helicopter#B2(2): Great day to do some flip close the sun !
+JetPlane#J1(3): Great day to do some flip close the sun !
+Helicopter#H1(4): Great day to do some flip close the sun !
+Helicopter#H2(5): Let listen some PNL to match with the rain...
+Helicopter#H3(6): Great day to do some flip close the sun !
+Helicopter#B3(7): Let listen some PNL to match with the rain...
+JetPlane#J2(8): Yooo, this is too cold bro!!
+Helicopter#H4(9): Yooo, this is too cold bro!!
+Baloon#B1(1): has landed.
+Helicopter#B2(2): Let listen some PNL to match with the rain...
+JetPlane#J1(3): Let listen some PNL to match with the rain...
+Helicopter#H1(4): has landed.
+Helicopter#H2(5): Where, we are??
+Helicopter#H3(6): Where, we are??
+Baloon#B3(7): has landed.
+JetPlane#J2(8): Where, we are??
+Helicopter#H4(9): Yooo, this is too cold bro!!
+Helicopter#B2(2): Where, we are??
+JetPlane#J1(3): Yooo, this is too cold bro!!
+Helicopter#H2(5): Great day to do some flip close the sun !
+Helicopter#H3(6): Let listen some PNL to match with the rain...
+JetPlane#J2(8): Let listen some PNL to match with the rain...
+Helicopter#H4(9): Yooo, this is too cold bro!!
+Baloon#B2(2): has landed.
+JetPlane#J1(3): Where, we are??
+Helicopter#H2(5): has landed.
+Helicopter#H3(6): Yooo, this is too cold bro!!
+JetPlane#J2(8): Let listen some PNL to match with the rain...
+Helicopter#H4(9): Let listen some PNL to match with the rain...
+JetPlane#J1(3): has landed.
+Helicopter#H3(6): Where, we are??
+JetPlane#J2(8): Let listen some PNL to match with the rain...
+Helicopter#H4(9): has landed.
+Helicopter#H3(6): Great day to do some flip close the sun !
+JetPlane#J2(8): Let listen some PNL to match with the rain...
+Helicopter#H3(6): Let listen some PNL to match with the rain...
+JetPlane#J2(8): Great day to do some flip close the sun !
+Helicopter#H3(6): Where, we are??
+JetPlane#J2(8): Yooo, this is too cold bro!!
+Helicopter#H3(6): has landed.
+JetPlane#J2(8): Yooo, this is too cold bro!!
+JetPlane#J2(8): has landed.

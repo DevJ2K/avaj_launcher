@@ -18,7 +18,10 @@ public class Simulator {
             return;
         }
         String fileContent = optionalFileContent.get();
-        // FileManager.writeInFile("simulation.txt", "Hello World !", true);
+
+        if (!FtLogger.isTerminalOutput() && !FileManager.writeInFile("simulation.txt", "", false)) {
+            return ;
+        }
         Optional<SimulationData> optionalSimulationData = SimulatorParser.parse(fileContent);
         optionalSimulationData.ifPresent(((simulationData) -> runSimulation(simulationData)));
     }
@@ -55,6 +58,13 @@ public class Simulator {
         }
         for (int i = 0; i < simulationData.repeat(); i++) {
             tower.changeWeather();
+        }
+        if (FtLogger.isTerminalOutput()) {
+            System.out.println(
+                Colors.to(Colors.BHGREEN, "Simulation completed."));
+        } else {
+            System.out.println(
+                    Colors.to(Colors.BHGREEN, "Simulation completed. Check '" + FtLogger.OUTPUT_FILE + "' for details."));
         }
     }
 }

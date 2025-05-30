@@ -1,8 +1,17 @@
 package com.devj2k.avaj.launcher.utils;
 
+import com.devj2k.avaj.launcher.FileManager;
+
 public class FtLogger {
 
+    private static final String TERMINAL_OUTPUT = System.getProperty("TERMINAL_OUT");
+    public static final String OUTPUT_FILE = "simulation.txt";
+
     private FtLogger() {
+    }
+
+    public static boolean isTerminalOutput() {
+        return TERMINAL_OUTPUT != null && TERMINAL_OUTPUT.toLowerCase().contentEquals("true");
     }
 
     public static void error(String description, Exception e) {
@@ -15,31 +24,50 @@ public class FtLogger {
         System.out.println(Colors.to(Colors.BHRED, description));
     }
 
-    // Dans simulation.txt
     public static void scenario(String aircraftType, String aircraftName, String id, String message) {
-        switch (aircraftType) {
-            case "Baloon" ->
-                System.out.println(Colors.to(Colors.BBLUE,
-                        "Baloon#" + aircraftName + "(" + id + "): " + Colors.to(Colors.BHWHITE, message)));
-            case "Helicopter" ->
-                System.out.println(Colors.to(Colors.BMAG,
-                        "Helicopter#" + aircraftName + "(" + id + "): " + Colors.to(Colors.BHWHITE, message)));
-            case "JetPlane" ->
-                System.out.println(Colors.to(Colors.BCYAN,
-                        "JetPlane#" + aircraftName + "(" + id + "): " + Colors.to(Colors.BHWHITE, message)));
-            default ->
-                System.out.println("Unknown aircraft type: " + aircraftType + "#");
+        if (!isTerminalOutput()) {
+            FileManager.writeInFile(
+                    OUTPUT_FILE,
+                    aircraftType + "#" + aircraftName + "(" + id + "): " + message,
+                    true);
+        } else {
+            switch (aircraftType) {
+                case "Baloon" ->
+                    System.out.println(Colors.to(Colors.BBLUE,
+                            "Baloon#" + aircraftName + "(" + id + "): " + Colors.to(Colors.BHWHITE, message)));
+                case "Helicopter" ->
+                    System.out.println(Colors.to(Colors.BMAG,
+                            "Helicopter#" + aircraftName + "(" + id + "): " + Colors.to(Colors.BHWHITE, message)));
+                case "JetPlane" ->
+                    System.out.println(Colors.to(Colors.BCYAN,
+                            "JetPlane#" + aircraftName + "(" + id + "): " + Colors.to(Colors.BHWHITE, message)));
+                default ->
+                    System.out.println(aircraftType + "#" + aircraftName + "(" + id + "): Unknown aircraft type");
+            }
         }
     }
 
-    // Dans simulation.txt
     public static void towerRegister(String aircraft) {
-        System.out.println(Colors.to(Colors.BWHITE,
-                "Tower says: " + Colors.to(Colors.BHWHITE, aircraft + " registred to weather tower.")));
+        if (!isTerminalOutput()) {
+            FileManager.writeInFile(
+                    OUTPUT_FILE,
+                    "Tower says: " + aircraft + " registered to weather tower.",
+                    true);
+        } else {
+            System.out.println(Colors.to(Colors.BWHITE,
+                    "Tower says: " + Colors.to(Colors.BHWHITE, aircraft + " registered to weather tower.")));
+        }
     }
 
     public static void towerUnregister(String aircraft) {
-        System.out.println(Colors.to(Colors.BWHITE,
-                "Tower says: " + Colors.to(Colors.BHWHITE, aircraft + " unregistred from weather tower.")));
+        if (!isTerminalOutput()) {
+            FileManager.writeInFile(
+                    OUTPUT_FILE,
+                    "Tower says: " + aircraft + " unregistered from weather tower.",
+                    true);
+        } else {
+            System.out.println(Colors.to(Colors.BWHITE,
+                    "Tower says: " + Colors.to(Colors.BHWHITE, aircraft + " unregistered from weather tower.")));
+        }
     }
 }
