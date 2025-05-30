@@ -1,5 +1,6 @@
 package com.devj2k.avaj.launcher;
 
+import com.devj2k.avaj.launcher.exception.BeanValidationException;
 import com.devj2k.avaj.launcher.utils.FtLogger;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,11 +48,8 @@ public class SimulatorParser {
                 try {
                     AircraftBlueprint aircraftBlueprint = getAircraftBlueprint(elements);
                     aircraftBlueprints.add(aircraftBlueprint);
-                } catch (IllegalArgumentException e) {
+                } catch (IllegalArgumentException | BeanValidationException e) {
                     FtLogger.parsingError("Invalid aircraft blueprint: " + e.getMessage(), i);
-                    return Optional.empty();
-                } catch (Exception e) {
-                    FtLogger.error("An unexpected error occurred while parsing the aircraft blueprint.", e);
                     return Optional.empty();
                 }
             }
