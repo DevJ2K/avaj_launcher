@@ -27,8 +27,9 @@ public class Helicopter extends Aircraft {
                 this.coordinates.setHeight(coordinates.getHeight() - 12);
         }
         if (this.coordinates.getHeight() == 0) {
-            FtLogger.scenario("Helicopter", this.name, this.stringId, "has landed.");
+            FtLogger.scenario("Helicopter", this.name, this.stringId, "landing.");
             this.weatherTower.unregister(this);
+            FtLogger.towerUnregister("Helicopter#" + this.name + "(" + this.stringId + ")");
         } else {
             displayConditions();
         }
