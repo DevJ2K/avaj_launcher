@@ -14,6 +14,7 @@ public class Aircraft extends Flyable {
         this.stringId = String.valueOf(this.id);
     }
 
+    @Override
     public void updateConditions() {
         System.out.println("Default update conditions method...");
     }

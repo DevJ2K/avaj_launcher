@@ -8,7 +8,7 @@ public class AircraftFactory {
     private AircraftFactory() {
     }
 
-    private static AircraftFactory getInstance() {
+    public static AircraftFactory getInstance() {
         return aircraftFactory;
     }
 

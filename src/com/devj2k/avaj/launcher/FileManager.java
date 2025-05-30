@@ -13,8 +13,7 @@ public class FileManager {
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                System.out.println("line:" + line);
-                content.append(line).append("\n");
+                content.append(line.replace("	", " ")).append("\n");
             }
         } catch (IOException e) {
             FtLogger.error("Error while reading in file '" + fileName + "'", e);

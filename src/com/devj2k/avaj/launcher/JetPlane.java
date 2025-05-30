@@ -8,6 +8,7 @@ public class JetPlane extends Aircraft {
         super(id, name, coordinates);
     }
 
+    @Override
     public void updateConditions() throws IllegalArgumentException {
         String currentWeather = this.weatherTower.getWeather(this.coordinates);
         if (currentWeather == null) {
@@ -28,6 +29,22 @@ public class JetPlane extends Aircraft {
         if (this.coordinates.getHeight() == 0) {
             FtLogger.scenario("JetPlane", this.name, this.stringId, "has landed.");
             this.weatherTower.unregister(this);
+        } else {
+            displayConditions();
+        }
+    }
+
+    private void displayConditions() {
+        String currentWeather = this.weatherTower.getWeather(this.coordinates);
+        if (currentWeather == null) {
+            FtLogger.scenario("JetPlane", this.name, this.stringId, "has no weather data available.");
+            return;
+        }
+        switch (WeatherType.valueOf(currentWeather)) {
+            case SUN -> FtLogger.scenario("JetPlane", this.name, this.stringId, "Great day to do some flip close the sun !");
+            case RAIN -> FtLogger.scenario("JetPlane", this.name, this.stringId, "Let listen some PNL to match with the rain...");
+            case FOG -> FtLogger.scenario("JetPlane", this.name, this.stringId, "Where, we are??");
+            case SNOW -> FtLogger.scenario("JetPlane", this.name, this.stringId, "Yooo, this is too cold bro!!");
         }
     }
 }
