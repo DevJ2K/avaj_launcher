@@ -29,6 +29,7 @@ public class Baloon extends Aircraft {
         if (this.coordinates.getHeight() == 0) {
             FtLogger.scenario("Baloon", this.name, this.stringId, "landing.");
             this.weatherTower.unregister(this);
+            this.weatherTower = null;
             FtLogger.towerUnregister("Baloon#" + this.name + "(" + this.stringId + ")");
         } else {
             displayConditions();
@@ -43,11 +44,18 @@ public class Baloon extends Aircraft {
         }
         switch (WeatherType.valueOf(currentWeather)) {
             case SUN ->
-                FtLogger.scenario("Helicopter", this.name, this.stringId, "Great day to do some flip close the sun !");
-            case RAIN -> FtLogger.scenario("Helicopter", this.name, this.stringId,
-                    "Let listen some PNL to match with the rain...");
-            case FOG -> FtLogger.scenario("Helicopter", this.name, this.stringId, "Where, we are??");
-            case SNOW -> FtLogger.scenario("Helicopter", this.name, this.stringId, "Yooo, this is too cold bro!!");
+                FtLogger.scenario("Baloon", this.name, this.stringId,
+                        "☀️ Floating like a dream. Perfect day for a sky picnic!");
+            case RAIN ->
+                FtLogger.scenario("Baloon", this.name, this.stringId,
+                        "🌧️ Uh-oh… balloons and rain don't mix. Where's my umbrella??");
+            case FOG ->
+                FtLogger.scenario("Baloon", this.name, this.stringId,
+                        "🌫️ It's like drifting through a giant marshmallow… kinda spooky tho.");
+            case SNOW ->
+                FtLogger.scenario("Baloon", this.name, this.stringId,
+                        "❄️ Snowflakes on the basket… it's magical, but my toes are frozen.");
+
         }
     }
 }

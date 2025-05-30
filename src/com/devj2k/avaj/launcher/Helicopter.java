@@ -29,6 +29,7 @@ public class Helicopter extends Aircraft {
         if (this.coordinates.getHeight() == 0) {
             FtLogger.scenario("Helicopter", this.name, this.stringId, "landing.");
             this.weatherTower.unregister(this);
+            this.weatherTower = null;
             FtLogger.towerUnregister("Helicopter#" + this.name + "(" + this.stringId + ")");
         } else {
             displayConditions();
@@ -43,11 +44,18 @@ public class Helicopter extends Aircraft {
         }
         switch (WeatherType.valueOf(currentWeather)) {
             case SUN ->
-                FtLogger.scenario("Helicopter", this.name, this.stringId, "Great day to do some flip close the sun !");
-            case RAIN -> FtLogger.scenario("Helicopter", this.name, this.stringId,
-                    "Let listen some PNL to match with the rain...");
-            case FOG -> FtLogger.scenario("Helicopter", this.name, this.stringId, "Where, we are??");
-            case SNOW -> FtLogger.scenario("Helicopter", this.name, this.stringId, "Yooo, this is too cold bro!!");
+                FtLogger.scenario("Helicopter", this.name, this.stringId,
+                        "☀️ Blades spinning, sun blazing — let's dance with the wind like it's Fortnite Christmas Season.");
+            case RAIN ->
+                FtLogger.scenario("Helicopter", this.name, this.stringId,
+                        "🌧️ Rain's hitting the windshield like a beat drop. Time to hover in style.");
+            case FOG ->
+                FtLogger.scenario("Helicopter", this.name, this.stringId,
+                        "🌫️ Can't see the ground... Hope GPS is feeling brave today.");
+            case SNOW ->
+                FtLogger.scenario("Helicopter", this.name, this.stringId,
+                        "❄️ Ice on the rotors, and Ice in my vains. This ain't North Pole, but it's close!");
+
         }
     }
 }

@@ -8,22 +8,26 @@ import java.util.Optional;
 public class Simulator {
 
     public static void main(String[] args) {
-        if (args.length != 1) {
-            System.out.println("Usage: java Simulator <scenario_file>");
-            return;
+        try {
+            if (args.length != 1) {
+                System.out.println("Usage: java Simulator <scenario_file>");
+                return;
+            }
+    
+            Optional<String> optionalFileContent = Optional.ofNullable(FileManager.getContentFromFile(args[0]));
+            if (optionalFileContent.isEmpty()) {
+                return;
+            }
+            String fileContent = optionalFileContent.get();
+    
+            if (!FtLogger.isTerminalOutput() && !FileManager.writeInFile("simulation.txt", "", false)) {
+                return;
+            }
+            Optional<SimulationData> optionalSimulationData = SimulatorParser.parse(fileContent);
+            optionalSimulationData.ifPresent(((simulationData) -> runSimulation(simulationData)));
+        } catch (Exception e) {
+           FtLogger.error("An error occurred during simulation", e);
         }
-
-        Optional<String> optionalFileContent = Optional.ofNullable(FileManager.getContentFromFile(args[0]));
-        if (optionalFileContent.isEmpty()) {
-            return;
-        }
-        String fileContent = optionalFileContent.get();
-
-        if (!FtLogger.isTerminalOutput() && !FileManager.writeInFile("simulation.txt", "", false)) {
-            return;
-        }
-        Optional<SimulationData> optionalSimulationData = SimulatorParser.parse(fileContent);
-        optionalSimulationData.ifPresent(((simulationData) -> runSimulation(simulationData)));
     }
 
     public static void runSimulation(SimulationData simulationData) {

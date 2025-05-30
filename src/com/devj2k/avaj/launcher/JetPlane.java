@@ -29,6 +29,7 @@ public class JetPlane extends Aircraft {
         if (this.coordinates.getHeight() == 0) {
             FtLogger.scenario("JetPlane", this.name, this.stringId, "landing.");
             this.weatherTower.unregister(this);
+            this.weatherTower = null;
             FtLogger.towerUnregister("JetPlane#" + this.name + "(" + this.stringId + ")");
         } else {
             displayConditions();
@@ -43,11 +44,18 @@ public class JetPlane extends Aircraft {
         }
         switch (WeatherType.valueOf(currentWeather)) {
             case SUN ->
-                FtLogger.scenario("JetPlane", this.name, this.stringId, "Great day to do some flip close the sun !");
-            case RAIN -> FtLogger.scenario("JetPlane", this.name, this.stringId,
-                    "Let listen some PNL to match with the rain...");
-            case FOG -> FtLogger.scenario("JetPlane", this.name, this.stringId, "Where, we are??");
-            case SNOW -> FtLogger.scenario("JetPlane", this.name, this.stringId, "Yooo, this is too cold bro!!");
+                FtLogger.scenario("JetPlane", this.name, this.stringId,
+                        "☀️ Blue skies and no turbulence — let's break the sound barrier for fun!");
+            case RAIN ->
+                FtLogger.scenario("JetPlane", this.name, this.stringId,
+                        "🌧️ Rainy runways and lo-fi beats in the cockpit. Let's cruise above the clouds.");
+            case FOG ->
+                FtLogger.scenario("JetPlane", this.name, this.stringId,
+                        "🌫️ Autopilot ON. Can't see squat but we're still flyin'.");
+            case SNOW ->
+                FtLogger.scenario("JetPlane", this.name, this.stringId,
+                        "❄️ Engines cold, we keep calm and everything will be fine... right?");
+
         }
     }
 }
