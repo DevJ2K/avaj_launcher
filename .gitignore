@@ -1,3 +1,5 @@
 target/
 *.class
 sources.txt
+.pytest_cache
+__pycache__
