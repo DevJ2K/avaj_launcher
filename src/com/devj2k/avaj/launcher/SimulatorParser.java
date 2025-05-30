@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-
 public class SimulatorParser {
     public static Optional<SimulationData> parse(String content) {
         if (Objects.isNull(content) || content.isBlank()) {
@@ -30,7 +29,8 @@ public class SimulatorParser {
                         return Optional.empty();
                     }
                 } catch (IllegalArgumentException e) {
-                    FtLogger.parsingError("The first line must contain a valid integer for the number of simulations.", i);
+                    FtLogger.parsingError("The first line must contain a valid integer for the number of simulations.",
+                            i);
                     return Optional.empty();
                 }
             } else {
@@ -41,7 +41,9 @@ public class SimulatorParser {
                         .toList();
 
                 if (elements.size() != 5) {
-                    FtLogger.parsingError("Each aircraft line must contain exactly 5 elements. (TYPE(str) NAME(str) LONGITUDE(int) LATITUDE(int) HEIGHT(int))", i);
+                    FtLogger.parsingError(
+                            "Each aircraft line must contain exactly 5 elements. (TYPE(str) NAME(str) LONGITUDE(int) LATITUDE(int) HEIGHT(int))",
+                            i);
                     return Optional.empty();
                 }
 

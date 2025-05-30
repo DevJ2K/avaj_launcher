@@ -42,8 +42,10 @@ public class Baloon extends Aircraft {
             return;
         }
         switch (WeatherType.valueOf(currentWeather)) {
-            case SUN -> FtLogger.scenario("Helicopter", this.name, this.stringId, "Great day to do some flip close the sun !");
-            case RAIN -> FtLogger.scenario("Helicopter", this.name, this.stringId, "Let listen some PNL to match with the rain...");
+            case SUN ->
+                FtLogger.scenario("Helicopter", this.name, this.stringId, "Great day to do some flip close the sun !");
+            case RAIN -> FtLogger.scenario("Helicopter", this.name, this.stringId,
+                    "Let listen some PNL to match with the rain...");
             case FOG -> FtLogger.scenario("Helicopter", this.name, this.stringId, "Where, we are??");
             case SNOW -> FtLogger.scenario("Helicopter", this.name, this.stringId, "Yooo, this is too cold bro!!");
         }

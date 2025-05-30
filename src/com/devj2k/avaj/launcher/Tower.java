@@ -3,7 +3,6 @@ package com.devj2k.avaj.launcher;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-
 public class Tower {
     List<Flyable> observers = new CopyOnWriteArrayList<>();
 

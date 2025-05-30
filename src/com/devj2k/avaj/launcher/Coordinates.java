@@ -1,6 +1,5 @@
 package com.devj2k.avaj.launcher;
 
-
 public class Coordinates {
     private int longitude;
     private int latitude;
@@ -30,7 +29,7 @@ public class Coordinates {
         }
         this.longitude = longitude;
     }
-    
+
     public void setLatitude(int latitude) {
         if (latitude < 0) {
             this.latitude = 0;

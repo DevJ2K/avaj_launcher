@@ -1,7 +1,6 @@
-package com.devj2k.avaj.launcher;
+package com.devj2k.avaj.launcher.utils;
 
 import com.devj2k.avaj.launcher.exception.BeanValidationException;
-
 
 public class BeanValidation {
 
@@ -14,11 +13,5 @@ public class BeanValidation {
             return this;
         }
         throw new BeanValidationException(errorMessage);
-    }
-
-    public static void main(String[] args) {
-        validator()
-        .validate(true, "")
-        .validate(false, "False");
     }
 }

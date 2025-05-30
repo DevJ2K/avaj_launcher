@@ -1,6 +1,5 @@
 package com.devj2k.avaj.launcher;
 
-
 public abstract class Flyable {
     protected WeatherTower weatherTower;
 

@@ -1,6 +1,5 @@
 package com.devj2k.avaj.launcher;
 
-
 public class Aircraft extends Flyable {
     protected final long id;
     protected final String name;

@@ -42,8 +42,10 @@ public class JetPlane extends Aircraft {
             return;
         }
         switch (WeatherType.valueOf(currentWeather)) {
-            case SUN -> FtLogger.scenario("JetPlane", this.name, this.stringId, "Great day to do some flip close the sun !");
-            case RAIN -> FtLogger.scenario("JetPlane", this.name, this.stringId, "Let listen some PNL to match with the rain...");
+            case SUN ->
+                FtLogger.scenario("JetPlane", this.name, this.stringId, "Great day to do some flip close the sun !");
+            case RAIN -> FtLogger.scenario("JetPlane", this.name, this.stringId,
+                    "Let listen some PNL to match with the rain...");
             case FOG -> FtLogger.scenario("JetPlane", this.name, this.stringId, "Where, we are??");
             case SNOW -> FtLogger.scenario("JetPlane", this.name, this.stringId, "Yooo, this is too cold bro!!");
         }
