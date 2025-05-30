@@ -13,6 +13,8 @@ def test_invalid_scenario():
             stderr=PIPE,
             text=True
         )
+        print(f"Testing scenario: {scenario}")
+        print(f"Output: {result.stdout}")
         assert "Parsing Error" in result.stdout, f"Expected parsing error for '{scenario}', but got output: {result.stdout}"
 
 def test_valid_scenario():
@@ -25,6 +27,8 @@ def test_valid_scenario():
             stderr=PIPE,
             text=True
         )
+        print(f"Testing scenario: {scenario}")
+        print(f"Output: {result.stdout}")
         assert "Parsing Error" not in result.stdout, f"Expected no parsing error for '{scenario}', but got output: {result.stdout}"
 
 if __name__ == "__main__":

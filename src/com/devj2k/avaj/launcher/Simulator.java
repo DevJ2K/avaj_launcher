@@ -8,27 +8,25 @@ import java.util.Optional;
 public class Simulator {
 
     public static void main(String[] args) {
-        // if (args.length != 1) {
-        // System.out.println("Usage: java Simulator <scenario_file>");
-        // return;
-        // }
-        // String filePath = "../avaj_launcher/scenario.txt";
-        String filePath = "files/valid/scenario_with_tab_between.txt";
+        if (args.length != 1) {
+            System.out.println("Usage: java Simulator <scenario_file>");
+            return;
+        }
 
-        Optional<String> optionalFileContent = Optional.ofNullable(FileManager.getContentFromFile(filePath));
+        Optional<String> optionalFileContent = Optional.ofNullable(FileManager.getContentFromFile(args[0]));
         if (optionalFileContent.isEmpty()) {
             return;
         }
         String fileContent = optionalFileContent.get();
-        System.out.println(fileContent);
         // FileManager.writeInFile("simulation.txt", "Hello World !", true);
         Optional<SimulationData> optionalSimulationData = SimulatorParser.parse(fileContent);
         optionalSimulationData.ifPresent(((simulationData) -> runSimulation(simulationData)));
     }
 
     public static void runSimulation(SimulationData simulationData) {
-        System.out.println(Colors.to(Colors.BWHITE, "Running simulation with " + simulationData.repeat() + " simulations and "
-                + simulationData.aircraftBlueprints().size() + " aircraft blueprints."));
+        System.out.println(
+                Colors.to(Colors.BWHITE, "Running simulation with " + simulationData.repeat() + " simulations and "
+                        + simulationData.aircraftBlueprints().size() + " aircraft blueprints."));
 
         AircraftFactory aircraftFactoryInstance = AircraftFactory.getInstance();
         List<Flyable> flyables = simulationData.aircraftBlueprints()
@@ -39,11 +37,11 @@ public class Simulator {
                         new Coordinates(aircraftBlueprint.longitude(), aircraftBlueprint.latitude(),
                                 aircraftBlueprint.height()))))
                 .toList();
-        
+
         WeatherTower tower = new WeatherTower();
 
         if (flyables.size() != simulationData.aircraftBlueprints().size() || flyables.isEmpty()) {
-            return ;
+            return;
         }
 
         for (int i = 0; i < flyables.size(); i++) {
