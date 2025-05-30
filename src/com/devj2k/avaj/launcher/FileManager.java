@@ -13,6 +13,7 @@ public class FileManager {
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             while ((line = reader.readLine()) != null) {
+                System.out.println("line:" + line);
                 content.append(line).append("\n");
             }
         } catch (IOException e) {

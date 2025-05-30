@@ -9,6 +9,11 @@ public class FtLogger {
         System.out.println(Colors.to(Colors.BRED, e.getMessage()));
     }
 
+    public static void parsingError(String description) {
+        System.out.print(Colors.to(Colors.RED, "Parsing Error: "));
+        System.out.println(Colors.to(Colors.BHRED, description));
+    }
+
     public static void scenario(String aircraftType, String aircraftName, String id, String message) {
         switch (aircraftType) {
             case "Baloon":

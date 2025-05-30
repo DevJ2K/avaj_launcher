@@ -17,6 +17,7 @@ public class Simulator {
         }
         String fileContent = optionalFileContent.get();
         System.out.println(fileContent);
-        FileManager.writeInFile("simulation.txt", "Hello World !", true);
+        // FileManager.writeInFile("simulation.txt", "Hello World !", true);
+        SimulatorParser.parse(fileContent);
     }
 }
